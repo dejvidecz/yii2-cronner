@@ -36,7 +36,7 @@ final class Task {
      * @param \dejvidecz\Cronner\Tasks\CronnerRMethod $method
      * @param \dejvidecz\Cronner\ITimestampStorage $timestampStorage
      */
-    public function __construct($object, CronnerRMethod $method, \dejvidecz\Cronner\ITimestampStorage $timestampStorage) {
+    public function __construct($object, \dejvidecz\Cronner\Reflection\CronnerRMethod $method, \dejvidecz\Cronner\TimestampStorage\ITimestampStorage $timestampStorage) {
         $this->method = $method;
         $this->object = $object;
         $this->timestampStorage = $timestampStorage;
