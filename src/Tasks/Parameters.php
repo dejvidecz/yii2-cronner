@@ -29,10 +29,10 @@ class Parameters {
     /**
      * Parse cronner values from annotations.
      *
-     * @param \Nette\Reflection\Method $method
+     * @param \dejvidecz\Cronner\Reflection\CronnerRMethod $method
      * @return array
      */
-    public static function parseParameters(CronnerRMethod $method) {
+    public static function parseParameters(\dejvidecz\Cronner\Reflection\CronnerRMethod $method) {
         $taskName = NULL;
         if ($method->hasAnnotation(Parameters::TASK)) {
             $className = $method->getDeclaringClass()->getName();
