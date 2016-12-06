@@ -1,5 +1,6 @@
 {
     "name": "dejvidecz/yii2-cronner",
+    "version":"1.0.0",
     "description": "Cronner for yii2",
     "keywords": ["cronner", "yii2"],
     "type": "yii2-extension",
