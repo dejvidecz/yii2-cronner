@@ -2,8 +2,6 @@
 
 namespace dejvidecz\Cronner\Tasks;
 
-use dejvidecz\Cronner\Tasks\Parser;
-
 /**
  * @author Martin Štekl <martin.stekl@gmail.com>
  * @edited for Yii by David Sindelar

@@ -3,7 +3,6 @@
 namespace dejvidecz\Cronner\TimestampStorage;
 
 use DateTime;
-use dejvidecz\Cronner\ITimestampStorage;
 
 /**
  * @author David Sindelar 

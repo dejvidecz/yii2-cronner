@@ -2,6 +2,10 @@
 
 namespace dejvidecz\Cronner;
 
+use dejvidecz\Cronner\TimestampStorage\DatabaseStorage;
+use dejvidecz\Cronner\Reflection\CronnerRClass;
+use dejvidecz\Cronner\Tasks\Task;
+
 /**
  * Description of Cronner
  *
@@ -13,23 +17,22 @@ class Cronner {
      * @var int Max execution time of PHP script in seconds
      */
     private $maxExecutionTime;
-    
     private $tasks;
 
     function __construct() {
-        if(!isset(\Yii::$app->params['cronner']['database'])){
-            throw new Exception("Database table is not set in config params file");
+        if (!isset(\Yii::$app->params['cronner']['database'])) {
+            throw new \Exception("Database table is not set in config params file");
         }
-        if(!isset(\Yii::$app->params['cronner']['tasks'])){
-            throw new Exception("No task is defined");
-        }        
+        if (!isset(\Yii::$app->params['cronner']['tasks'])) {
+            throw new \Exception("No task is defined");
+        }
         $tasks = \Yii::$app->params['cronner']['tasks'];
-        
-        $fileStorage = new TimestampStorage\DatabaseStorage();
+
+        $fileStorage = new DatabaseStorage();
         foreach ($tasks as $task) {
-            $reflection = new Tasks\CronnerRClass($task);
+            $reflection = new CronnerRClass($task);
             foreach ($reflection->getMethods() as $method) {
-                $this->tasks[] = new Tasks\Task(new $task, $method, $fileStorage);
+                $this->tasks[] = new Task(new $task, $method, $fileStorage);
             }
         }
     }

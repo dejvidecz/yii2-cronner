@@ -16,12 +16,12 @@ final class Task {
     private $object;
 
     /**
-     * @var CronnerRMethod
+     * @var \dejvidecz\Cronner\Reflection\CronnerRMethod
      */
     private $method;
 
     /**
-     * @var \dejvidecz\Cronner\ITimestampStorage
+     * @var \dejvidecz\Cronner\TimestampStorage\ITimestampStorage
      */
     private $timestampStorage;
 
@@ -31,11 +31,10 @@ final class Task {
     private $parameters = NULL;
 
     /**
-     * Creates instance of one task.
-     *
-     * @param object $object
-     * @param \Nette\Reflection\Method $method
-     * @param \stekycz\Cronner\ITimestampStorage $timestampStorage
+     * 
+     * @param type $object
+     * @param \dejvidecz\Cronner\Tasks\CronnerRMethod $method
+     * @param \dejvidecz\Cronner\ITimestampStorage $timestampStorage
      */
     public function __construct($object, CronnerRMethod $method, \dejvidecz\Cronner\ITimestampStorage $timestampStorage) {
         $this->method = $method;
@@ -84,7 +83,7 @@ final class Task {
     /**
      * Returns instance of parsed parameters.
      *
-     * @return \stekycz\Cronner\Tasks\Parameters
+     * @return Parameters
      */
     private function getParameters() {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace dejvidecz\Cronner\Tasks;
+namespace dejvidecz\Cronner\Reflection;
 
 /**
  * Description of CronnerRMethod
