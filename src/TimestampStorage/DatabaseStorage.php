@@ -1,6 +1,6 @@
 <?php
 
-namespace stekycz\Cronner\TimestampStorage;
+namespace dejvidecz\Cronner\TimestampStorage;
 
 use DateTime;
 use dejvidecz\Cronner\ITimestampStorage;

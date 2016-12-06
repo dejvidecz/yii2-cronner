@@ -25,7 +25,7 @@ class Cronner {
         }        
         $tasks = \Yii::$app->params['cronner']['tasks'];
         
-        $fileStorage = new \stekycz\Cronner\TimestampStorage\DatabaseStorage();
+        $fileStorage = new TimestampStorage\DatabaseStorage();
         foreach ($tasks as $task) {
             $reflection = new Tasks\CronnerRClass($task);
             foreach ($reflection->getMethods() as $method) {
