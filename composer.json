@@ -1,0 +1,28 @@
+{
+    "name": "dejvidecz/yii2-cronner",
+    "description": "Cronner for yii2",
+    "keywords": ["cronner", "yii2"],
+    "type": "yii2-extension",
+    "license": "BSD",
+    "support": {
+        "issues": "https://github.com/dejvidecz/yii2-cronner/issues",
+        "wiki": "https://github.com/dejvidecz/yii2-cronner/wiki",
+        "source": "https://github.com/dejvidecz/yii2-cronner"
+    },
+    "authors": [
+        {
+            "name": "David Sindelar",
+            "email": "dejvidecz@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {        
+    },
+    "autoload": {
+        "psr-4": {
+            "dejvidecz\\Cronner\\": "src"
+        }
+    }
+}
