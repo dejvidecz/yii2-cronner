@@ -52,7 +52,7 @@ class Cronner {
                 try {
                     $filePath = \Yii::$app->getRuntimePath() . '/cronner/log/error.log';
                     if (!is_dir(dirname($filePath))) {
-                        mkdir(dirname($file));
+                        mkdir(dirname($filePath));
                     }
                     $file = fopen($filePath, 'a');
                     $now = new \DateTime;
