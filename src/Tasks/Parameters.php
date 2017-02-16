@@ -1,8 +1,8 @@
 <?php
-
 namespace dejvidecz\Cronner\Tasks;
 
-use dejvidecz\Cronner\Tasks\Parser;
+use dejvidecz\Cronner\Reflection\CronnerRMethod;
+
 
 /**
  * @author Martin Štekl <martin.stekl@gmail.com>
@@ -31,7 +31,7 @@ class Parameters {
     /**
      * Parse cronner values from annotations.
      *
-     * @param \Nette\Reflection\Method $method
+     * @param CronnerRMethod $method
      * @return array
      */
     public static function parseParameters(CronnerRMethod $method) {

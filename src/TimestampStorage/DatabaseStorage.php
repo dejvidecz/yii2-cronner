@@ -1,9 +1,8 @@
 <?php
 
-namespace stekycz\Cronner\TimestampStorage;
+namespace dejvidecz\Cronner\TimestampStorage;
 
 use DateTime;
-use dejvidecz\Cronner\ITimestampStorage;
 
 /**
  * @author David Sindelar 
@@ -19,6 +18,7 @@ class DatabaseStorage implements ITimestampStorage {
      * Sets name of current task.
      *
      * @param string|null $taskName
+     * @throws \Exception
      */
     public function setTaskName($taskName = NULL) {
         if ($taskName !== NULL && (!$taskName || !is_string($taskName) || strlen($taskName) <= 0)) {

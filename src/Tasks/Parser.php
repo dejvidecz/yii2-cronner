@@ -80,7 +80,6 @@ class Parser {
      *
      * @param string $annotation
      * @return string[][]|null
-     * @throws \stekycz\Cronner\InvalidParameterException
      */
     public static function parseTimes($annotation) {
         $times = NULL;

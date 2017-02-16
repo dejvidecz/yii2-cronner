@@ -4,6 +4,9 @@ namespace dejvidecz\Cronner\Tasks;
 
 use DateTime;
 
+use dejvidecz\Cronner\Reflection\CronnerRMethod;
+use dejvidecz\Cronner\TimestampStorage\ITimestampStorage;
+
 /**
  * @author Martin Štekl <martin.stekl@gmail.com>
  * @edited for Yii by David Sindelar
@@ -21,7 +24,7 @@ final class Task {
     private $method;
 
     /**
-     * @var \dejvidecz\Cronner\ITimestampStorage
+     * @var ITimestampStorage
      */
     private $timestampStorage;
 
@@ -34,10 +37,10 @@ final class Task {
      * Creates instance of one task.
      *
      * @param object $object
-     * @param \Nette\Reflection\Method $method
-     * @param \stekycz\Cronner\ITimestampStorage $timestampStorage
+     * @param CronnerRMethod $method
+     * @param ITimestampStorage $timestampStorage
      */
-    public function __construct($object, CronnerRMethod $method, \dejvidecz\Cronner\ITimestampStorage $timestampStorage) {
+    public function __construct($object, CronnerRMethod $method, ITimestampStorage $timestampStorage) {
         $this->method = $method;
         $this->object = $object;
         $this->timestampStorage = $timestampStorage;
@@ -84,7 +87,7 @@ final class Task {
     /**
      * Returns instance of parsed parameters.
      *
-     * @return \stekycz\Cronner\Tasks\Parameters
+     * @return Parameters
      */
     private function getParameters() {
 

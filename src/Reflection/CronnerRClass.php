@@ -1,6 +1,6 @@
 <?php
 
-namespace dejvidecz\Cronner\Tasks;
+namespace dejvidecz\Cronner\Reflection;
 
 /**
  * Description of CronnerRMethod
@@ -9,10 +9,18 @@ namespace dejvidecz\Cronner\Tasks;
  */
 class CronnerRClass extends \ReflectionClass {
 
+    /**
+     * @param string $name
+     * @return CronnerRMethod
+     */
     public function getMethod($name) {
         return new CronnerRMethod($this->getName(), parent::getMethod($name)->getName());
     }
 
+    /**
+     * @param int|null|string $filter
+     * @return array
+     */
     public function getMethods($filter = \ReflectionMethod::IS_PUBLIC) {
         $methods = parent::getMethods($filter);
         $ret = [];

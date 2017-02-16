@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace dejvidecz\Cronner\Tasks;
+namespace dejvidecz\Cronner\Reflection;
 
 /**
  * Description of CronnerRMethod
@@ -15,6 +15,10 @@ namespace dejvidecz\Cronner\Tasks;
  */
 class CronnerRMethod extends \ReflectionMethod {
 
+    /**
+     * @param $name
+     * @return bool
+     */
     public function hasAnnotation($name) {
         $annotations = $this->getAllAnnotations();
         foreach ($annotations as $annotation) {
@@ -25,6 +29,10 @@ class CronnerRMethod extends \ReflectionMethod {
         return false;
     }
 
+    /**
+     * @param $name
+     * @return null|string
+     */
     public function getAnnotation($name) {
         $annotations = $this->getAllAnnotations();
         foreach ($annotations as $annotation) {
@@ -35,6 +43,9 @@ class CronnerRMethod extends \ReflectionMethod {
         return null;
     }
 
+    /**
+     * @return mixed
+     */
     private function getAllAnnotations() {
         $doc = $this->getDocComment();
         preg_match_all('#@(.*?)\n#s', $doc, $annotations);
