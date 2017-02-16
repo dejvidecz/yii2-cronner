@@ -16,12 +16,12 @@ class Cronner {
     
     private $tasks;
 
-    function __construct() {
+    public function __construct() {
         if(!isset(\Yii::$app->params['cronner']['database'])){
-            throw new Exception("Database table is not set in config params file");
+            throw new \Exception("Database table is not set in config params file");
         }
         if(!isset(\Yii::$app->params['cronner']['tasks'])){
-            throw new Exception("No task is defined");
+            throw new \Exception("No task is defined");
         }        
         $tasks = \Yii::$app->params['cronner']['tasks'];
         
@@ -49,14 +49,14 @@ class Cronner {
                 try {
                     $filePath = \Yii::$app->getRuntimePath() . '/cronner/log/error.log';
                     if (!is_dir(dirname($filePath))) {
-                        mkdir(dirname($file));
+                        mkdir(dirname($filePath));
                     }
                     $file = fopen($filePath, 'a');
                     $now = new \DateTime;
                     $txt = $now->format('Y-m-d H:i:s') . " - Error message: " . $ex->getMessage() . PHP_EOL . $ex->getTraceAsString() . PHP_EOL;
                     fwrite($file, $txt);
                     fclose($file);
-                } catch (Exception $ex) {
+                } catch (\Exception $ex) {
                     //bad day :(
                 }
             }
