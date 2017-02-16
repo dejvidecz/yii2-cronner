@@ -1,6 +1,8 @@
 <?php
 
 namespace dejvidecz\Cronner;
+use dejvidecz\Cronner\Reflection\CronnerRClass;
+use dejvidecz\Cronner\TimestampStorage\DatabaseStorage;
 
 /**
  * Description of Cronner
@@ -13,7 +15,7 @@ class Cronner {
      * @var int Max execution time of PHP script in seconds
      */
     private $maxExecutionTime;
-    
+
     private $tasks;
 
     public function __construct() {
@@ -22,12 +24,12 @@ class Cronner {
         }
         if(!isset(\Yii::$app->params['cronner']['tasks'])){
             throw new \Exception("No task is defined");
-        }        
+        }
         $tasks = \Yii::$app->params['cronner']['tasks'];
-        
-        $fileStorage = new \stekycz\Cronner\TimestampStorage\DatabaseStorage();
+
+        $fileStorage = new DatabaseStorage();
         foreach ($tasks as $task) {
-            $reflection = new Tasks\CronnerRClass($task);
+            $reflection = new CronnerRClass($task);
             foreach ($reflection->getMethods() as $method) {
                 $this->tasks[] = new Tasks\Task(new $task, $method, $fileStorage);
             }
@@ -49,6 +51,9 @@ class Cronner {
                 try {
                     $filePath = \Yii::$app->getRuntimePath() . '/cronner/log/error.log';
                     if (!is_dir(dirname($filePath))) {
+                        if (!is_dir(dirname(dirname($filePath)))){
+                            mkdir(dirname(dirname($filePath)));
+                        }
                         mkdir(dirname($filePath));
                     }
                     $file = fopen($filePath, 'a');

@@ -9,6 +9,7 @@ use DateTime;
  */
 class DatabaseStorage implements ITimestampStorage {
 
+
     /**
      * @var string|NULL
      */
