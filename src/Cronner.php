@@ -61,6 +61,7 @@ class Cronner {
                     $txt = $now->format('Y-m-d H:i:s') . " - Error message: " . $ex->getMessage() . PHP_EOL . $ex->getTraceAsString() . PHP_EOL;
                     fwrite($file, $txt);
                     fclose($file);
+                    chmod($file,0775);
                 } catch (\Exception $ex) {
                     //bad day :(
                 }
