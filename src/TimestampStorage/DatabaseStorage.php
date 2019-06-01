@@ -69,7 +69,7 @@ class DatabaseStorage implements ITimestampStorage {
 
 }
 
-class DatabaseModel extends \dlds\giixer\components\GxActiveRecord {
+class DatabaseModel extends \yii\db\ActiveRecord {
 
     /**
      * @inheritdoc
